@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notas</title>
+    <meta name="description" content="Pagina de notas a mi gusto" />
+    <meta name="keywords" content="notas super anotaciones notas keypad keep" />
+    <meta name="Author" content="Lissandro Dev" />
+    <!-- <meta http-equiv="refresh" content="0; ">
+    <meta http-equiv="refresh" content="5"> -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="nav-bg">
+      <h1 class="Cont_title">Note Me!</h1>
+      <nav class="nav">
+        <a href="#">Inicio</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </div>
+    <div class="contenedor">
+      <div class="contenedor__notas--general">
+        <h3 class="contenedor__notas--general--create">Añadir notas</h3>
+        <section class="contenedor_creador">
+          <div class="enviar_notas">
+            <p>
+              <label for="titulo">Titulo de la nota</label>
+              <input
+                type="text"
+                name=""
+                id="titulo"
+                placeholder="Escribe aqui"
+              />
+            </p>
+            <p>Contenido</p>
+            <textarea
+              name="titulo"
+              id="titulo"
+              placeholder="Escribe el contenido de la nota aqui"
+            ></textarea>
+            <br />
+
+            <button onclick="CrearNota()">Crear</button>
+          </div>
+        </section>
+        <section class="contenedor_creador_extras">
+          <div class="campos"></div>
+          <div class="campos"></div>
+        </section>
+      </div>
+      <!--Seccion ver notas-->
+      <div class="contenedor_notas--ver">
+        <div class="header_ver-notas">
+          <section>
+            <h3 id="contenedor_notas--titulo">
+              Notas <span id="user_name">--</span>
+            </h3>
+          </section>
+          <section class="cont_not">
+            <select title="notas" name="OrderNotes" id="">
+              <option value="Ordenar" selected>Ordenar por</option>
+              <option value="Categoria" id="categoria">Categoria</option>
+              <option value="Fecha" id="op-fecha">Fecha</option>
+              <option value="Tamaño" id="op-tamanio">Tamaño</option>
+              <option value="alfa" id="op-afla">A-Z</option>
+              <option value="ul-modi">Ultima modificación</option>
+              <option value="pri-modi">Primera modificación</option>
+            </select>
+            <button id="EnviarOrden">Ordenar</button>
+          </section>
+        </div>
+        <div id="contenedor_real">
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>La cardinalidad</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                se define como la relaciones entre entidades (tablas) con otro
+                conjunto, se pueden compartir solo elementos únicos, o varios a
+                muchas tablas, a eso se le llama cardinalidad : puede haber de 3
+                tipos principalmente 1-Uno a Uno 2-Uno a muchos 3-Muchos a
+                muchos (se requiere de una tabla intermedia)
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Fin nota-->
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+          <!--Nota-->
+          <section class="nota">
+            <div class="titulo_nota">
+              <h2>Luis</h2>
+            </div>
+            <div class="contenido_nota">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                voluptates non deleniti sit in enim rerum ab totam, rem sed
+                porro! Eaque, dignissimos. Corrupti vitae tempora unde hic, nam
+                alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Iusto fugiat recusandae quo quos. Temporibus accusamus,
+                repudiandae ipsum optio rerum sunt corrupti modi unde ducimus,
+                praesentium eum laborum nobis illo maxime!
+              </p>
+            </div>
+            <div class="opciones_notas">
+              <a href="" id="notas_opcion">Editar</a>
+              <a href="" id="notas_opcion">Borrar</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <footer>
+      <a id="Author" href="https://github.com/LuisD3vv"
+        >&copy 2025 Lissandro dev</a
+      >
+    </footer>
+  </body>
+</html>
