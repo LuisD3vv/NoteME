@@ -162,7 +162,8 @@ a:hover {
     border-top-left-radius: unset;
   }
   .contenedor_real {
-    overflow: unset;
+    box-shadow: none;
+    overflow: visible;
   }
   .contenedor_notas--ver {
   }
@@ -173,14 +174,26 @@ a:hover {
     font-size: 22px;
   }
   .opciones_notas {
+    font-size: 15px;
     box-shadow: unset;
   }
-  .nota {
+  #notas_opcion {
+    align-self: center;
 
+    height: 5rem;
+  }
+  .nota {
     min-height: 40rem;
   }
+  .nota:hover {
+    transform: unset;
+    transition: unset;
+  }
   select {
-    width: 10rem;
+    background-color: transparent;
+  }
+  .con_options {
+    min-width: 1rem;
   }
   .nav-bg {
     flex-direction: column;
@@ -197,11 +210,26 @@ a:hover {
     margin-right: 0px;
     margin-left: 0px;
   }
+  .header_ver-notas {
+    flex-direction: column;
+    width: 95%;
+    margin: 1rem auto 2rem;
+    box-shadow: 0px 1px 3px 1px rgb(0, 0, 0);
+    min-height: 20rem;
+    padding: 10px;
+    gap: 10px;
+  }
+  .header_ver-notas h3 {
+    font-size: 30px;
+  }
+  .cont_not {
+    padding: 5px;
+    display: flex;
+  }
 }
 a {
   width: auto;
 }
-
 a:nth-child(1) {
   border-bottom-left-radius: unset;
   border-top-left-radius: unset;
@@ -212,14 +240,13 @@ a:nth-child(3) {
   border-top-right-radius: unset;
   border-left: none;
 }
-
 footer {
-  bottom: -8px;
+  bottom: -13px;
   width: 100%;
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
-  background-color: rgb(173, 230, 179);
+  background-color: rgba(173, 230, 179, 0.583);
 }
 #Author {
   border: none;
@@ -238,7 +265,6 @@ footer {
   justify-content: space-between;
   box-shadow: 0px 1px 3px 1px rgb(0, 0, 0);
   height: 55px;
-  padding: 5px;
 }
 
 select {
@@ -255,7 +281,8 @@ select {
   font-weight: bold;
 }
 option {
-  background-color: red;
+  text-align: center;
+  background-color: transparent;
 }
 #EnviarOrden {
   margin-left: 2rem;
@@ -275,7 +302,7 @@ option {
   border-bottom-right-radius: 10px;
   padding: 5px;
   scrollbar-width: none;
-  background-color: #222222e7;
+  background-color: #222222ba;
   color: #eeeeeebf;
 }
 .nota:hover {
