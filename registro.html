@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Registro</title>
+  </head>
+  <body class="bg_registro">
+    <div class="Contenedor_registro">
+      <section class="labels_registro">
+        <h3>Bienvenido</h3>
+        <div class="campito">
+          <label for="user" class="label-formulario">Usuario</label>
+          <input
+            type="email"
+            name=""
+            id="user"
+            placeholder="Escribe tu usuario"
+          />
+        </div>
+        <div class="campito">
+          <label for="user_pssw" class="label-formulario">Contraseña</label>
+          <input
+            type="password"
+            name=""
+            id="user_pssw"
+            placeholder="Escribe tu contraseña"
+          />
+        </div>
+      </section>
+      <section class="cont_boton">
+        <!--Cambiar de ubicacion al presionar el boton-->
+        <button class="boton_registro" onclick="location.href='index.html'">Iniciar Sesion</button>
+      </section>
+    </div>
+    <footer>
+      <a id="Author" href="https://github.com/LuisD3vv"
+        >&copy 2025 Lissandro dev</a
+      >
+    </footer>
+  </body>
 </html>
