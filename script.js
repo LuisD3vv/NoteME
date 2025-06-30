@@ -49,6 +49,57 @@ function CrearNotas() {
   } else {
     CrearElementos(titulo_nota, contenido_nota);
   }
-}
+   fetch('http://localhost:5000/guardar', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ titulo: titulo_nota, contenido: contenido_nota })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if(data.mensaje){
+      // Si la nota se guardó bien, mostrarla en pantalla
+      CrearElementos(titulo_nota, contenido_nota);
 
-// Contenido que necesito traer, el titulo del input y el contenido del text area
+      // Limpiar los campos del formulario
+      document.getElementById("titulo").value = '';
+      document.getElementById("contenido_nota").value = '';
+
+      alert(data.mensaje);
+    } else if (data.error){
+      alert("Error: " + data.error);
+    }
+  })
+  .catch(err => {
+    console.error("Error al guardar la nota:", err);
+    alert("Error al guardar la nota");
+  });
+}
+  // Enviar la nota al backend con fetch (POST)
+ 
+
+
+// Función para cargar notas guardadas desde el backend y mostrarlas
+function cargarNotas() {
+  fetch('http://localhost:5000/notas')
+    .then(response => response.json())
+    .then(data => {
+      console.log("respuesta del backend",data)
+      data.forEach(nota => {
+        CrearElementos(nota.titulo, nota.contenido);
+      });
+    })
+    .catch(err => {
+      console.error("Error al cargar las notas:", err);
+    });
+}
+  // También podés pedir nombre aquí si querés
+  // let nombre = prompt("Hola, ¿Cual es tu nombre?");
+  // let user_name = document.getElementById("user_name");
+  // if(user_name && nombre) user_name.textContent = nombre;
+
+// Cargar notas cuando la página termina de cargar
+window.onload = function() {
+  cargarNotas();
+}

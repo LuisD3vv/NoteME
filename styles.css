@@ -233,6 +233,9 @@ border-left: 1px solid white;
     justify-content: start;
     grid-auto-rows: unset; /* filas de igual altura */
   }
+  .contendor_general_titulo {
+    height: auto;
+  }
   .texto_nota_orden {
     margin-top: 3rem;
     font-size: 2.5rem;
@@ -301,6 +304,7 @@ border-left: 1px solid white;
   }
   .con_options {
     min-width: 1rem;
+    font-size: 10px;
   }
   .nav-bg {
     flex-direction: column;
