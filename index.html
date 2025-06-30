@@ -9,13 +9,14 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <title>Notas</title>
+    <title>Note ME!</title>
     <meta name="description" content="Pagina de notas a mi gusto" />
     <meta name="keywords" content="notas super anotaciones notas keypad keep" />
     <meta name="Author" content="Lissandro Dev" />
     <!-- <meta http-equiv="refresh" content="0; ">
     <meta http-equiv="refresh" content="5"> -->
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" />
   </head>
   <body>
     <div class="nav-bg">
@@ -31,10 +32,10 @@
         <section class="contenedor_creador">
           <div class="enviar_notas">
             <p>
-              <label for="titulo">Titulo</label>
+              <label class="texto_nota_orden" for="titulo">Titulo</label>
               <input
                 type="text"
-                name=""
+                name="titulo"
                 id="titulo"
                 placeholder="Escribe aqui"
               />
@@ -42,25 +43,34 @@
             <p>Contenido</p>
             <textarea
               name="titulo"
-              id="titulo"
+              id="contenido_nota"
               placeholder="Escribe el contenido de la nota aqui"
+              maxlength="450"
             ></textarea>
             <br />
 
-            <button onclick="CrearNota()">Crear</button>
+            <button id="boton_crearNota" onclick="CrearNotas()">Crear</button>
           </div>
         </section>
-        <!-- <section class="contenedor_creador_extras">
-          <div class="campos"></div>
-          <div class="campos"></div>
-        </section> -->
+        <section class="contenedor_creador_extras">
+          <div class="campos">
+            <h3>Opciones para las notas</h3>
+            <section class="notas_opciones">
+              <button id="borrarNota">Eliminar Nota</button>
+              <button id="editarNota">Editar Nota</button>
+              <button id="compartirNota">Compartir</button>
+              <button id="compartirNota">proximamente</button>
+              <button id="compartirNota">proximamente</button>
+            </section>
+          </div>
+        </section>
       </div>
       <!--Seccion ver notas-->
       <div class="contenedor_notas--ver">
         <div class="header_ver-notas">
           <section class="contendor_general_titulo">
             <h3 id="contenedor_notas--titulo">
-              Notas <span id="user_name">--</span>
+              Notas de<span id="user_name">--</span>
             </h3>
           </section>
           <section class="cont_not">
@@ -73,457 +83,10 @@
               <option value="ul-modi">Ultima modificación</option>
               <option value="pri-modi">Primera modificación</option>
             </select>
-            <button id="EnviarOrden">Ordenar</button>
+            <button id="EnviarOrden" onclick="CrearNotas()">Ordenar</button>
           </section>
         </div>
-        <div id="contenedor_real">
-          <!--Nota-->
-          <section class="nota">
-            <div class="titulo_nota">
-              <h2>La cardinalidad</h2>
-            </div>
-            <div class="contenido_nota">
-              <p>
-                se define como la relaciones entre entidades (tablas) con otro
-                conjunto, se pueden compartir solo elementos únicos, o varios a
-                muchas tablas, a eso se le llama cardinalidad : puede haber de 3
-                tipos principalmente 1-Uno a Uno 2-Uno a muchos 3-Muchos a
-                muchos (se requiere de una tabla intermedia)
-              </p>
-            </div>
-          
-          </section>
-          <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-    <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-      
-   <!--Nota-->
-          <section class="nota">
-            <div class="titulo_nota">
-              <h2>La cardinalidad</h2>
-            </div>
-            <div class="contenido_nota">
-              <p>
-                se define como la relaciones entre entidades (tablas) con otro
-                conjunto, se pueden compartir solo elementos únicos, o varios a
-                muchas tablas, a eso se le llama cardinalidad : puede haber de 3
-                tipos principalmente 1-Uno a Uno 2-Uno a muchos 3-Muchos a
-                muchos (se requiere de una tabla intermedia)
-              </p>
-            </div>
-          
-          </section>
-          <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-    <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-   <!--Nota-->
-          <section class="nota">
-            <div class="titulo_nota">
-              <h2>La cardinalidad</h2>
-            </div>
-            <div class="contenido_nota">
-              <p>
-                se define como la relaciones entre entidades (tablas) con otro
-                conjunto, se pueden compartir solo elementos únicos, o varios a
-                muchas tablas, a eso se le llama cardinalidad : puede haber de 3
-                tipos principalmente 1-Uno a Uno 2-Uno a muchos 3-Muchos a
-                muchos (se requiere de una tabla intermedia)
-              </p>
-            </div>
-          
-          </section>
-          <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-    <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-   <!--Nota-->
-          <section class="nota">
-            <div class="titulo_nota">
-              <h2>La cardinalidad</h2>
-            </div>
-            <div class="contenido_nota">
-              <p>
-                se define como la relaciones entre entidades (tablas) con otro
-                conjunto, se pueden compartir solo elementos únicos, o varios a
-                muchas tablas, a eso se le llama cardinalidad : puede haber de 3
-                tipos principalmente 1-Uno a Uno 2-Uno a muchos 3-Muchos a
-                muchos (se requiere de una tabla intermedia)
-              </p>
-            </div>
-          
-          </section>
-          <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-    <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-   <!--Nota-->
-          <section class="nota">
-            <div class="titulo_nota">
-              <h2>La cardinalidad</h2>
-            </div>
-            <div class="contenido_nota">
-              <p>
-                se define como la relaciones entre entidades (tablas) con otro
-                conjunto, se pueden compartir solo elementos únicos, o varios a
-                muchas tablas, a eso se le llama cardinalidad : puede haber de 3
-                tipos principalmente 1-Uno a Uno 2-Uno a muchos 3-Muchos a
-                muchos (se requiere de una tabla intermedia)
-              </p>
-            </div>
-          
-          </section>
-          <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Detalles Avanzados</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-    <section class="nota">
-  <div class="titulo_nota">
-    <h2>La cardinalidad</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Este es un texto corto para probar la nota.
-    </p>
-  </div>
-</section>
-
-<section class="nota">
-  <div class="titulo_nota">
-    <h2>Conceptos Básicos</h2>
-  </div>
-  <div class="contenido_nota">
-    <p>
-      Aquí hay un contenido un poco más largo para ver cómo se adapta el scroll cuando el contenido crece. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-  </div>
-</section>
-        </div>
+        <div id="contenedor_real"></div>
       </div>
     </div>
     <script src="script.js"></script>
