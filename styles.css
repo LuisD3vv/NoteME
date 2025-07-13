@@ -81,31 +81,29 @@ overflow-y: hidden ocultará el contenido que se desborde sin scroll.
 
 overflow-y: visible es el comportamiento por defecto, el contenido se mostrará fuera del contenedor si es muy grande. */
 #contenedor_real {
-  /* Firefox */
-  overflow-y: auto; /*Evitar el desbordamiento vertical*/
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(25rem, 1fr)
-  ); /* ajuste automático */
-  grid-auto-rows: minmax(35rem, 1fr); /* filas de igual altura */
-  gap: 1rem;
-  align-items: start;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(35rem, 25%));
+  overflow-y: auto;
+  gap: 10px;
   padding: 1rem;
-  width: 95%;
+  max-width: 115rem;
   box-shadow: 0px 1px 3px 1px rgb(0, 0, 0);
   margin: 0 auto;
-  justify-items: center;
   padding: 10px;
   height: 65rem;
+  background-color: #22222267;
+  border-radius: 5px;
 }
 .contenedor__notas--general {
   border-top-left-radius: 3rem;
   background-color: lightcoral;
+  height: 75rem;
 }
 .contenedor_notas--ver {
   background-color: lightblue;
-  height: auto;
+  height: 75rem;
+  margin-bottom: 2rem;
 }
 .contenedor__notas--general--create {
   font-family: monospace;
@@ -118,38 +116,49 @@ overflow-y: visible es el comportamiento por defecto, el contenido se mostrará 
   background-color: #222222b4;
 }
 .notas_opciones {
+  width: 100%;
   display: flex;
   padding: 10px;
   gap: 5px;
   flex-direction: column;
-  align-content: start;
-  margin-top: -4rem;
-  
+  margin-top: -3.5rem;
 }
 #borrarNota,
 #editarNota,
 #compartirNota {
-  padding: 15px;
-    background-color: #222222b4;
-border-right: 1px solid white;
-border-left: 1px solid white;
-
+  font-family: monospace;
+  flex: 1 1 60px;
+  height: 50px;
+  background: #222;
+  width: 20rem;
+  margin: auto;
   text-align: center;
-  border-radius: 5px;
   color: #eee;
   font-size: 13px;
-  transition: ease 0.5s;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: bold;
+
+  transition: all ease 0.5s;
+  border-radius: 5px;
 }
-#borrarNota:hover {
-  transform: scale(1.05);
-  transition:transform ease 0.5s ;
-}
-#editarNota:hover {
-  transform: scale(1.05);
-  transition:transform ease 0.5s ;}
+#borrarNota:hover,
+#editarNota:hover,
 #compartirNota:hover {
-  transform: scale(1.05);
-  transition:transform ease 0.5s ;}
+  width: 95%;
+  background-color: #222;
+  transform: scale(1.01);
+  transition: all ease 0.5s;
+  border-radius: 15px;
+}
+#borrarNota:focus,
+#editarNota:focus,
+#compartirNota:focus {
+  box-shadow: 0px 0px 4px 2px #eee;
+  transition: box-shadow 0.3s ease;
+  width: 95%;
+  background-color: #222;
+}
 .contenedor_creador {
   width: 95%;
   height: 30rem;
@@ -224,14 +233,15 @@ border-left: 1px solid white;
     padding: 5px;
   }
   #contenedor_real {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     box-shadow: none;
     overflow: unset;
     box-shadow: none;
     height: auto;
     overflow-x: auto;
     gap: 10px;
-    justify-content: start;
-    grid-auto-rows: unset; /* filas de igual altura */
   }
   .contendor_general_titulo {
     height: auto;
@@ -239,8 +249,7 @@ border-left: 1px solid white;
   .texto_nota_orden {
     margin-top: 3rem;
     font-size: 2.5rem;
-        letter-spacing: 3px;
-
+    letter-spacing: 3px;
   }
   #titulo {
     margin-top: 1rem;
@@ -276,7 +285,6 @@ border-left: 1px solid white;
   }
   .contenido_nota p {
     font-size: 22px;
-    
   }
   .opciones_notas {
     font-size: 15px;
@@ -288,10 +296,9 @@ border-left: 1px solid white;
   }
   #nota {
     position: unset;
-    width: 95%;
-    height: auto;
-    scrollbar-width: unset;
+    width: 100%;
     border-radius: 5px;
+    min-height: none;
   }
   .nota:hover {
     transform: unset;
@@ -323,6 +330,7 @@ border-left: 1px solid white;
   }
   .header_ver-notas {
     flex-direction: column;
+    flex-wrap: wrap;
     width: 95%;
     margin: 1rem auto 2rem;
 
@@ -367,23 +375,27 @@ footer {
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgba(87, 217, 100, 0.839);
+  background-color: #222222c9;
   position: fixed;
 }
 #Author {
   position: relative;
   border: none;
   width: 100%;
+  color: white;
+  transition: all ease 0.3s;
 }
 #Author:hover {
   background-color: unset;
-  color: rgb(0, 0, 0);
-  letter-spacing: 3px;
+  text-shadow: 1px 1px 1px black;
+  letter-spacing: 6px;
+  transition: letter-spacing 0.3s ease;
 }
 .header_ver-notas {
   background-color: #22222278;
   display: flex;
-  width: 95%;
+  max-width: 95%;
+  width: auto;
   margin: 1rem auto 2rem;
   align-items: center;
   justify-content: space-between;
@@ -414,35 +426,40 @@ option {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  width: 10rem;
+  margin: auto;
+  transition: all ease 0.3s;
+}
+#boton_crearNota:hover {
+  border-radius: 10px;
+  width: 85%;
+  transition: width ease 0.3s;
+}
+#boton_crearNota:focus {
+  box-shadow: 0px 0px 4px 2px #eee;
+  transition: box-shadow 0.3s ease;
 }
 #nota {
-  position: relative;
-  overflow: visible;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   color: #eee;
-  background-color: #222222e9;
-  padding: 5px;
-  min-height: 150px;
-  height: auto;
-  margin: 0;
-  border-radius: 10px;
+  background-color: #111111a6;
+  border-radius: 5px;
   min-width: 25rem;
 }
 #nota:hover {
   transform: scale(1.05);
   transition: transform ease 0.5s;
-  box-shadow: 0px 0px 5px 1px rgb(0, 0, 0);
-  /* transform: scale(1.05); */
-  /* transition: transform ease 0.5s; */
 }
 .titulo_nota {
   width: 95%;
   margin: 6px auto;
   text-align: center;
-  font-size: 15px;
+  font-size: 13px;
   padding: 5px;
+  color: rgb(29, 241, 29);
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
   border-bottom: 1px solid grey;
 }
 .contenido_nota {
@@ -458,7 +475,6 @@ option {
   width: 100%;
   overflow-wrap: break-word;
 }
-
 #notas_opcion:hover {
   background-color: transparent;
   color: #222;
@@ -536,33 +552,46 @@ textarea::placeholder {
   width: 10rem;
   height: auto;
   margin-right: 1rem;
-  font-size: 16px;
+  font-size: 15px;
   background-color: white;
   text-align: center;
   border: 2px solid #222;
   font-weight: bold;
   cursor: pointer;
 }
+#EnviarOrden:hover {
+}
+#EnviarOrden:focus {
+  box-shadow: 1px 1px 10px 1px #222;
+  background-color: #00ff00;
+  color: #222;
+}
+#EnviarOrden:active {
+  box-shadow: 0px 0px 1px 1px #ffffff;
+  background-color: #00ff00;
+  color: #222;
+}
 /*PAGINA SIMULADA DE REGISTRO*/
 
 .bg_registro {
-  background-color: #222;
+  background-image: url(img/photo-1671347020855-8f35d210ee9a.jpeg);
 }
 .Contenedor_registro {
+  background: #333333a1;
   margin: 10rem auto;
-  max-width: 35rem;
+  max-width: 40rem;
   width: auto;
   height: 50rem;
-  box-shadow: 0px 0px 10px 1px #eee;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 1px #222;
 }
 .labels_registro {
   text-align: center;
   width: 90%;
   margin: 3rem auto;
   gap: 5px;
-  background-color: #615a5a33;
+  background-color: #333333f1;
   padding: 10px;
   border-radius: 5px;
 }
@@ -580,7 +609,8 @@ button {
   text-align: center;
   font-size: 1.7rem;
   margin-bottom: 1rem;
-  color: green;
+  color: rgb(0, 255, 0);
+  text-shadow: 3px 2px 3px black;
 }
 #user,
 #user_pssw {
@@ -589,13 +619,14 @@ button {
   padding: 10px;
   font-style: italic;
   letter-spacing: 3px;
-  border-bottom: 1px solid white;
   border-radius: 3px;
   font-size: 15px;
+  background-color: #22222271;
 }
 #user,
 #user_pssw::placeholder {
   color: white;
+  font-size: 12px;
 }
 #Checkdata {
   width: 1rem;
@@ -612,29 +643,35 @@ h3 {
   border-radius: 5px;
 }
 .cont_boton {
-  padding: 5px;
-  width: 30rem;
+  width: auto;
   margin: auto;
   text-align: center;
 }
 .boton_registro {
   cursor: pointer;
-  width: auto;
+  width: 50%;
   margin: 0 auto;
   padding: 10px;
-  color: white;
+  background-color: white;
+
+  color: #222;
   font-size: 15px;
   font-weight: bold;
   letter-spacing: 1px;
   transition: ease-out 0.4s;
   outline: invert;
 }
+
 .boton_registro:hover {
   border-radius: 5px;
-  background-color: #635b5b3f;
-  transition: background-color ease 0.3s;
+  width: 85%;
+  border-radius: 15px;
+  background-color: white;
+  transition: background-color width ease 0.3s;
 }
-
+.boton_registro:focus {
+  box-shadow: 1px 1px 5px 1px white;
+}
 @media (max-width: 40rem) {
   .Contenedor_registro {
     width: 90%;
