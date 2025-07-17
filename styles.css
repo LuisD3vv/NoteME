@@ -116,20 +116,44 @@ overflow-y: visible es el comportamiento por defecto, el contenido se mostrará 
   background-color: #222222b4;
 }
 .notas_opciones {
+  font-size: 15px;
   width: 100%;
+  font-weight: bold;
   display: flex;
   padding: 10px;
-  gap: 5px;
+  gap: 10px;
   flex-direction: column;
-  margin-top: -3.5rem;
+  margin-top: -4rem;
+}
+details {
+  background-color: transparent;
+  font-size: 1.7em;
+}
+/*Editar cuando este abierto el elemento*/
+details[open] {
+  text-align: center;
+  transition: text-align 0.3s ease;
+  color: white;
+  border: 1px solid #ddd;
+  background-color: #222;
+  border-radius: 4px;
+}
+summary {
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 1em;
 }
 #borrarNota,
 #editarNota,
 #compartirNota {
+  align-self: center;
   font-family: monospace;
   flex: 1 1 60px;
   height: 50px;
-  background: #222;
+  background-color: #22222296;
   width: 20rem;
   margin: auto;
   text-align: center;
@@ -138,7 +162,7 @@ overflow-y: visible es el comportamiento por defecto, el contenido se mostrará 
   text-transform: capitalize;
   cursor: pointer;
   font-weight: bold;
-
+  margin-bottom: 10px;
   transition: all ease 0.5s;
   border-radius: 5px;
 }
@@ -146,10 +170,10 @@ overflow-y: visible es el comportamiento por defecto, el contenido se mostrará 
 #editarNota:hover,
 #compartirNota:hover {
   width: 95%;
-  background-color: #222;
+  background-color: #444;
   transform: scale(1.01);
   transition: all ease 0.5s;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 #borrarNota:focus,
 #editarNota:focus,
