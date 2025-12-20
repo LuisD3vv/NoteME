@@ -19,12 +19,6 @@
     <link rel="icon" type="image/png" />
   </head>
   <body>
-    <div class="nav-bg">
-      <h1 class="Cont_title">Note Me!</h1>
-      <nav class="nav">
-        <a href="#">Inicio</a>
-        <a href="#">Contacto</a>
-      </nav>
     </div>
     <div class="contenedor">
       <div class="contenedor__notas--general">
@@ -38,30 +32,33 @@
                 name="titulo"
                 id="titulo"
                 placeholder="Escribe aqui"
+                autocomplete="off"
               />
             </p>
-            <p>Contenido</p>
             <textarea
               name="titulo"
               id="contenido_nota"
-              placeholder="Escribe el contenido de la nota aqui"
+              placeholder="Contenido de la nota"
               maxlength="450"
+              
             ></textarea>
             <br />
 
             <button id="boton_crearNota" onclick="CrearNotas()">Crear</button>
           </div>
         </section>
+        <hr class="divisor_line">
         <section class="contenedor_creador_extras">
           <div class="campos">
-            <h3>Opciones</h3>
-            <details class="notas_opciones " >
+            <details>
+              <!-- El elemento sumarry no es un hijo normal flex, se comporta como un componente especial, por lo cual no recibe el diplsay flex del padre,. por eso es mejor idea asilar lo que queremos que sea flex. -->
               <summary>Opciones</summary>
-                <button id="borrarNota">Eliminar Nota</button>
-                <button id="editarNota">Editar Nota</button>
-                <button id="compartirNota">Compartir</button>
-                <button id="compartirNota">proximamente</button>
-          
+              <div class="campos_botones">
+                <button class="notas_opciones--boton" id="borrarNota">Eliminar Nota</button>
+                <button class="notas_opciones--boton" id="editarNota">Editar Nota</button>
+                <button class="notas_opciones--boton" id="compartirNota">Compartir</button>
+                <button class="notas_opciones--boton" id="compartirNota">proximamente</button>
+                </div>
             </details>
           </div>
         </section>
@@ -70,8 +67,8 @@
       <div class="contenedor_notas--ver">
         <div class="header_ver-notas">
           <section class="contendor_general_titulo">
-            <h3 id="contenedor_notas--titulo">
-              Bienvenido <span id="user_name">--</span>
+            <h3 class="contenedor_notas--titulo">
+              Note ME!
             </h3>
           </section>
           <section class="cont_not">
@@ -93,7 +90,7 @@
     <script src="script.js"></script>
     <footer>
       <a id="Author" href="https://github.com/LuisD3vv"
-        >&copy 2025 Lissandro dev</a
+        >&copy 2025 LuisD3vv</a
       >
     </footer>
   </body>

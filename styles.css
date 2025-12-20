@@ -29,25 +29,6 @@ body {
   font-size: 30px;
   margin-left: 20px;
 }
-.nav-bg {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  width: auto;
-  gap: 5rem;
-  margin: auto;
-  padding: 5px;
-  border-radius: 5px;
-  background: linear-gradient(to right, lightblue, lightcoral);
-  border-bottom: 1px solid grey;
-}
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px;
-  width: auto;
-  gap: 5px;
-}
 a {
   font-family: monospace;
   text-align: center;
@@ -68,10 +49,11 @@ a:hover {
   display: grid;
   grid-template-columns: 20% 80%;
   width: auto;
-  max-width: 150rem;
-  height: 77rem;
+  max-width: 160rem;
+  height: 70rem;
   margin: 3rem auto;
-  padding: 10px;
+  padding: 1rem;
+  gap: 1rem;
 }
 /* overflow-y: scroll mostrará siempre una barra de scroll vertical.
 
@@ -81,153 +63,126 @@ overflow-y: hidden ocultará el contenido que se desborde sin scroll.
 
 overflow-y: visible es el comportamiento por defecto, el contenido se mostrará fuera del contenedor si es muy grande. */
 #contenedor_real {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  /* grid-template-rows: repeat(auto-fill,minmax(33rem,1fr)); */
-  overflow-y: auto;
-  grid-auto-flow: dense;
-  gap: 10px;
-  padding: 1rem;
-  max-width: 115rem;
-  box-shadow: 0px 1px 3px 1px rgb(0, 0, 0);
+  display:grid;
+  grid-template-columns:repeat(4,1fr); 
+  height:60rem;
+  gap: 1rem;
+  width: 95%;
   margin: 0 auto;
-  padding: 10px;
-  height: 65rem;
+  padding: 1rem;
   background-color: #22222267;
-  border-radius: 5px;
+  overflow-y:auto;
+  overflow-x:hidden;
 }
 .contenedor__notas--general {
-  border-top-left-radius: 3rem;
   background-color: lightcoral;
-  height: 75rem;
+  padding: 1rem;
+  max-width:100%;
+  height: max-content;
+  border-radius: 2rem;
 }
 .contenedor_notas--ver {
   background-color: lightblue;
-  height: 75rem;
-  margin-bottom: 2rem;
+  width: 95%;
+  min-height: 70rem;
 }
 .contenedor__notas--general--create {
-  font-family: monospace;
   text-align: center;
-  font-size: 20px;
+  font-size: 2rem;
   margin: 2rem auto;
   border-radius: 5px;
-  padding: 10px;
-  width: 90%;
-  background-color: #222222b4;
+  padding: 1rem;
+  width: 95%;
+  background-color: #e6e6e642;
 }
-.notas_opciones {
-  font-size: 15px;
-  width: 100%;
-  font-weight: bold;
-  display: flex;
-  padding: 10px;
-  gap: 10px;
-  flex-direction: column;
-  margin-top: -4rem;
-  justify-content: center;
 
+.campos_botones {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 100%;
+  height: max-content;
+  margin-top: 1rem;
 }
-details {
-  background-color: transparent;
-  font-size: 1.7em;
+.notas_opciones--boton {
+  padding: 1.5rem;
+  text-align: center;
+  width: auto;
+  max-width: 45rem;
+  font-size: 1.3rem;
+  background-color: #fff3f33d;
+  color: #222;
+  text-transform: uppercase;
+  cursor: pointer;
 }
-/*Editar cuando este abierto el elemento*/
-details[open] {
-  color: white;
-  border: 1px solid #ddd;
-  background-color: #222;
-  border-radius: 4px;
+.notas_opciones--boton:hover {
+background-color: #22222229;
+box-shadow: 0 1px 1px 1px #e6e6e6;
+border-radius: .5rem;
+}
+details[open] summary {
+  padding-bottom:1rem;
+  border-bottom: 1px solid #e6e6e6;
 }
 summary {
-  border: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: transparent;
-  border-radius: 5px;
-  padding: 9px;
-  font-size: 1em;
-}
-#borrarNota,
-#editarNota,
-#compartirNota {
-  align-self: center;
-  font-family: monospace;
-  flex: 1 1 60px;
-  height: 50px;
-  max-width: 23rem;
-  min-width: 20rem;
-  width: auto;
-  margin: auto;
-  text-align: center;
-  color: #eee;
-  font-size: 13px;
-  text-transform: capitalize;
-  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-  margin-bottom: 10px;
-  transition: all ease 0.5s;
-  border-radius: 5px;
+  text-transform: uppercase;
+  width: auto;
+  background-color: #e1e1e13c;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  border-radius: .5rem;
+  cursor: pointer;
 }
-#borrarNota:hover,
-#editarNota:hover,
-#compartirNota:hover {
-  width: 95%;
-  background-color: #444;
-  transform: scale(1.01);
-  transition: all ease 0.5s;
-  border-radius: 5px;
+summary::marker {
+  color: transparent;
 }
-#borrarNota:focus,
-#editarNota:focus,
-#compartirNota:focus {
-  box-shadow: 0px 0px 4px 2px #eee;
-  transition: box-shadow 0.3s ease;
-  width: 95%;
-  background-color: #222;
-}
+
 .contenedor_creador {
-  width: 95%;
-  height: 30rem;
+  display: flex;
+  flex-direction: row;
+  height:max-content;
   border-radius: 5px;
-  margin: auto;
-  background-color: #2222227e;
   color: #eeee;
 }
 .contenedor_creador_extras {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  width: 95%;
-  height: 30rem;
-  height: auto;
+  width: 100%;
   border-radius: 5px;
   margin: 1rem auto;
-  gap: 10px;
+
+  height: max-content;
 }
 .campos {
-  width: 100%;
-  height: 34rem;
-  background-color: #22222271;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin:0 auto;
   border-radius: 5px;
 }
 .campos h3 {
-  padding: 5px;
+  padding: 1rem;
   text-align: center;
   color: rgb(237, 220, 220);
   font-size: 20px;
   background-color: #222222b4;
 }
-#contenedor_notas--titulo {
-  font-family: "Times New Roman", Times, serif;
+.contenedor_notas--titulo{
+  background-color: #222222b4;
+  width:max-content;
+  padding:1rem;
   text-align: center;
-  font-size: 25px;
+  font-size: 2.5rem;
   margin: 3rem auto;
   border-radius: 5px;
-  margin-left: 1rem;
+  color:#e6e6e6;
 }
 #user_name {
   color: green;
-  text-shadow: unset;
   background-color: #22222271;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border-radius: 5px;
@@ -249,14 +204,26 @@ summary {
     margin-top: 1rem;
   }
   .contenedor {
-    margin: 2rem auto;
-    width: 95%;
+    margin:0 auto;
+    width: 100%;
     grid-template-columns: 1fr;
+    background-color:grey;
+    padding:1rem; 
     height: auto;
   }
   .contenedor__notas--general {
-    border-top-left-radius: unset;
+    border-radius:unset;
     padding: 5px;
+  }
+  .contenedor_notas--ver {
+    padding:1rem;
+    width:100%;
+  }
+  .contenedor_notas--titulo {
+    width:100%;
+  }
+  .contenedor__notas--general,.contenedor_notas--ver {
+    border-radius: .5rem;
   }
   #contenedor_real {
     display: flex;
@@ -265,20 +232,19 @@ summary {
     box-shadow: none;
     overflow: unset;
     box-shadow: none;
-    height: auto;
+    min-height:65rem;
+    height: max-content;
     overflow-x: auto;
     gap: 10px;
-  }
-  .contendor_general_titulo {
-    height: auto;
+
   }
   .texto_nota_orden {
     margin-top: 3rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
     letter-spacing: 3px;
   }
   #titulo {
-    margin-top: 1rem;
+    margin-top: 4rem;
     color: rgba(0, 0, 0, 0.544);
     border-bottom: none;
     padding: 15px;
@@ -374,7 +340,6 @@ summary {
   }
   .contendor_general_titulo {
     margin-bottom: 1rem;
-    background-color: #22222289;
     width: 100%;
     border-radius: 5px;
   }
@@ -413,32 +378,28 @@ footer {
 }
 #Author:hover {
   background-color: unset;
-  text-shadow: 1px 1px 1px black;
   letter-spacing: 6px;
   transition: letter-spacing 0.3s ease;
 }
 .header_ver-notas {
-  background-color: #22222278;
   display: flex;
   max-width: 95%;
   width: auto;
   margin: 1rem auto 2rem;
   align-items: center;
   justify-content: space-between;
-  height: 55px;
+  height: 5rem;
 }
 select {
-  align-items: center;
   text-align: center;
   max-width: 21rem;
-  padding: 10px;
+  padding: 1rem;
   border-radius: 5px;
   font-size: 16px;
-  height: auto;
   background: rgb(255, 255, 255);
   border: none;
-  box-shadow: 0px 0px 1px 1px rgb(16, 16, 0);
   font-weight: bold;
+  margin-right: 1rem;
 }
 option {
   text-align: center;
@@ -446,37 +407,38 @@ option {
 }
 #boton_crearNota {
   text-align: center;
-  background-color: #222;
-  padding: 15px;
+  background-color: #222222a8;
+  padding: 1rem;
   border-radius: 5px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  width: 10rem;
+  width: 90%;
   margin: auto;
   transition: all ease 0.3s;
 }
 #boton_crearNota:hover {
   border-radius: 10px;
-  width: 85%;
-  transition: width ease 0.3s;
 }
 #boton_crearNota:focus {
   box-shadow: 0px 0px 4px 2px #eee;
   transition: box-shadow 0.3s ease;
 }
 #nota {
+  flex: 1 1 10rem;
   display: flex;
   flex-direction: column;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  height;
+  padding:1rem;
   color: #eee;
   background-color: #111111a6;
   border-radius: 5px;
-  min-width: 25rem;
-  height: auto;
 }
 #nota:hover {
-  transform: scale(1.05);
-  transition: transform ease 0.5s;
+     transform: scale(1.02);
+  transition: transform 0.2s ease;
 }
 .titulo_nota {
   width: 95%;
@@ -486,8 +448,7 @@ option {
   padding: 5px;
   color: rgb(29, 241, 29);
   font-weight: bold;
-  text-shadow: 1px 1px 1px black;
-  border-bottom: 1px solid grey;
+  border-bottom: 3px solid grey;
 }
 .contenido_nota {
   margin: 0 auto;
@@ -511,36 +472,52 @@ option {
   display: flex;
   align-content: center;
 }
+
+.texto_nota_orden {
+  font-size:1.8rem;
+}
+.divisor_line {
+  margin: 0 auto;
+  width: 70%;
+  line-height: normal;
+  border-color: grey;
+}
 .enviar_notas {
+  background-color: #1111113f;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
   width: 95%;
   margin: 1rem auto;
-}
-label {
-  font-size: 20px;
-  font-weight: bold;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-bottom: 1rem;
 }
 input {
-  text-align: center;
+  text-align:center;
+  margin: 1rem 0 1rem 0;
   outline: none;
   font-weight: bold;
-  padding: 5px;
+  padding: 1rem;
   width: 100%;
   border: none;
-  background: transparent;
+  background: none;
   border-bottom: 3px solid rgb(0, 0, 0);
   border-radius: 5px;
   color: #eeee;
 }
 input::placeholder {
   text-align: center;
+  color: #e6e6e6;
+  opacity: 80%;
+
 }
+
 input:focus {
+  color: #222;
   border-bottom: 3px solid white;
+    background-color: #fff3f33d;
+
 }
 p {
   text-align: center;
@@ -548,6 +525,7 @@ p {
   font-weight: bold;
 }
 textarea {
+  margin-top: 1rem;
   text-align: center;
   height: 10rem;
   width: 100%;
@@ -556,38 +534,34 @@ textarea {
   background-color: transparent;
   border-radius: 5px;
   outline: none;
-  font-family: "Courier New", Courier, monospace;
   color: white;
   font-size: 13px;
-  padding: 3px;
+  padding: 1rem;
 }
 textarea:focus {
   border-left: 3px solid #e1e1e180;
   border-right: 3px solid #e1e1e180;
+  background-color: #e6e6e642;
 }
 textarea::placeholder {
   color: rgb(213, 197, 197);
 }
 #Crear_nota {
-  padding: 5px;
+  padding: 1rem;
   width: 100%;
 }
 #EnviarOrden {
-  margin-left: 2rem;
-  border-radius: 5px;
-  padding: 10px;
-  width: 10rem;
+  padding: 1rem;
   height: auto;
   margin-right: 1rem;
   font-size: 15px;
   background-color: white;
   text-align: center;
-  border: 2px solid #222;
   font-weight: bold;
   cursor: pointer;
+  border-radius: .5rem;
 }
-#EnviarOrden:hover {
-}
+
 #EnviarOrden:focus {
   box-shadow: 1px 1px 10px 1px #222;
   background-color: #00ff00;
@@ -597,110 +571,4 @@ textarea::placeholder {
   box-shadow: 0px 0px 1px 1px #ffffff;
   background-color: #00ff00;
   color: #222;
-}
-/*PAGINA SIMULADA DE REGISTRO*/
-
-.bg_registro {
-  background-image: url(img/photo-1671347020855-8f35d210ee9a.jpeg);
-}
-.Contenedor_registro {
-  background: #333333a1;
-  margin: 10rem auto;
-  max-width: 40rem;
-  width: auto;
-  height: 50rem;
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px 1px #222;
-}
-.labels_registro {
-  text-align: center;
-  width: 90%;
-  margin: 3rem auto;
-  gap: 5px;
-  background-color: #333333f1;
-  padding: 10px;
-  border-radius: 5px;
-}
-.campito {
-  margin-bottom: 3rem;
-}
-.Contenedor_registro input,
-label,
-button {
-  all: unset;
-}
-.label-formulario {
-  display: block;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 1.7rem;
-  margin-bottom: 1rem;
-  color: rgb(0, 255, 0);
-  text-shadow: 3px 2px 3px black;
-}
-#user,
-#user_pssw {
-  width: 80%;
-  border-radius: 2px;
-  padding: 10px;
-  font-style: italic;
-  letter-spacing: 3px;
-  border-radius: 3px;
-  font-size: 15px;
-  background-color: #22222271;
-}
-#user,
-#user_pssw::placeholder {
-  color: white;
-  font-size: 12px;
-}
-#Checkdata {
-  width: 1rem;
-}
-h3 {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 2.5rem;
-  letter-spacing: 3px;
-  margin-bottom: 5rem;
-  color: #eee;
-  text-shadow: 3px 2px 3px black;
-  padding: 5px;
-  border-radius: 5px;
-}
-.cont_boton {
-  width: auto;
-  margin: auto;
-  text-align: center;
-}
-.boton_registro {
-  cursor: pointer;
-  width: 50%;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: white;
-
-  color: #222;
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: ease-out 0.4s;
-  outline: invert;
-}
-
-.boton_registro:hover {
-  border-radius: 5px;
-  width: 85%;
-  border-radius: 15px;
-  background-color: white;
-  transition: background-color width ease 0.3s;
-}
-.boton_registro:focus {
-  box-shadow: 1px 1px 5px 1px white;
-}
-@media (max-width: 40rem) {
-  .Contenedor_registro {
-    width: 90%;
-  }
 }
