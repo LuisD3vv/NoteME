@@ -3,26 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Note ME!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>NoteME!</title>
     <meta name="description" content="Pagina de notas a mi gusto" />
     <meta name="keywords" content="notas super anotaciones notas keypad keep" />
     <meta name="Author" content="Lissandro Dev" />
     <!-- <meta http-equiv="refresh" content="0; ">
     <meta http-equiv="refresh" content="5"> -->
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/png" />
+    <link rel="shortcut icon" href="img/notas.png" type="image/x-icon">
   </head>
   <body>
     </div>
     <div class="contenedor">
       <div class="contenedor__notas--general">
-        <h3 class="contenedor__notas--general--create">Añadir notas</h3>
+        <h3 class="contenedor__notas--general--create"> Nueva nota</h3>
         <section class="contenedor_creador">
           <div class="enviar_notas">
             <p>
@@ -57,7 +54,6 @@
                 <button class="notas_opciones--boton" id="borrarNota">Eliminar Nota</button>
                 <button class="notas_opciones--boton" id="editarNota">Editar Nota</button>
                 <button class="notas_opciones--boton" id="compartirNota">Compartir</button>
-                <button class="notas_opciones--boton" id="compartirNota">proximamente</button>
                 </div>
             </details>
           </div>
@@ -67,21 +63,21 @@
       <div class="contenedor_notas--ver">
         <div class="header_ver-notas">
           <section class="contendor_general_titulo">
-            <h3 class="contenedor_notas--titulo">
-              Note ME!
-            </h3>
+            <div class="contenedor_notas--titulo">
+            <h3>NoteME!</h3>
+            </div>
           </section>
           <section class="cont_not">
             <select title="notas" name="OrderNotes" id="con_options">
-              <option value="Ordenar" selected>Ordenar por</option>
-              <option value="Categoria" id="categoria">Categoria</option>
-              <option value="Fecha" id="op-fecha">Fecha</option>
-              <option value="Tamaño" id="op-tamanio">Tamaño</option>
-              <option value="alfa" id="op-afla">A-Z</option>
+              <option value="Ordenar" disabled selected >Ordenar por</option>
+              <option value="Categoria"">Categoria</option>
+              <option value="Fecha" >Fecha</option>
+              <option value="Tamaño">Tamaño</option>
+              <option value="alfa">A-Z</option>
               <option value="ul-modi">Ultima modificación</option>
               <option value="pri-modi">Primera modificación</option>
             </select>
-            <button id="EnviarOrden" onclick="CrearNotas()">Ordenar</button>
+            <button id="EnviarOrden">Ordenar</button>
           </section>
         </div>
         <div id="contenedor_real"></div>
