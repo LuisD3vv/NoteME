@@ -1,12 +1,23 @@
-let fecha = new Date();
 let notas = []
+/*
+en el caso de editar se creara un dialog (con el id de la nota a editar,
+y solicitando los nuevos cambios)
+por el momento asi, hasta guardarlo en algo mas maduro
+*/
+
+
+
+function expandir_nota() {
+
+}
 
 let orden = document.querySelector("#EnviarOrden")
 orden.addEventListener("click",()=>{
   console.log("Acomodar")
 })
 
-function crearNota(titulo, contenido,tag) {
+// Crear estructura logica de cada nota, como se guarda en el localStorage.
+function estructura_guardar_nota_temporal(titulo, contenido,tag) {
   // regresar un objeto para ingresarlo como una copia exacta al array
   return {
     id: crypto.randomUUID(),   // id único real
@@ -16,106 +27,155 @@ function crearNota(titulo, contenido,tag) {
     etiquetas: [tag], // intereseante para luego filtrarla
   };
 }
-function crearElementos(titulo, contenido) {
-  // Crear los elementos traidos del html
-  let elementoContenedor = document.querySelector("#contenedor_real");
+function guardarNotas(titulo,contenido,tag) {
+ notas.push(estructura_guardar_nota_temporal(titulo,contenido,tag));
+    localStorage.setItem("notas",JSON.stringify(notas));
+}
 
-  // CREAR EL ELEMENTO TITULO QUE CONTIENE EL TEXTO EXTRAIDO
-  let elementoTitulo = document.createElement("h2");
-  // CREAR EL ELEMENTO P, QUE TRAERA EL CONTENIDO
-  let elementoContenido = document.createElement("p");
-  // ELEMENTO SECTION QUE ES EL CONTENEDOR GENERAL DE NOTAS
-  let elementosection = document.createElement("section");
-  //  CREANDO EL ELEMENTO DIV GENERICO PARA DARLE LA CLASE TITULO
-  let elementoDivTitulo = document.createElement("div");
-  // CREANDO EL ELEMENTO DIV GENERICO QUE ES EL CONTENEDOR DEL TEXTO EXTRAIDO
-  let elementoDivContenido = document.createElement("div");
+function crear_nota_DOM(titulo,contenido,tag) {
+   //* ELEMENTO SECTION QUE ES EL CONTENEDOR GENERAL DE NOTAS
+  let nota = document.createElement("DIV");
 
+  //* CREAR EL ELEMENTO TITULO 
+  let titulo_nota = document.createElement("H2");
 
-  contenido = contenido.replace("\n",""); // Remplazar saltos de linea con espacios vacios
-  elementoTitulo.innerText = titulo;
-  elementoContenido.innerText = contenido;
-  elementoTag = document.querySelector("#tag").value
+  //* CREAR EL ELEMENTO P 
+  let contenido_nota = document.createElement("P");
+
+  //*  CREANDO EL ELEMENTO DIV GENERICO CONTENEDOR TITULO
+  let contenedor_titulo_nota = document.createElement("DIV");
+
+  //* CREANDO EL ELEMENTO DIV GENERICO QUE ES EL CONTENEDOR DEL TEXTO EXTRAIDO
+  let contenedor_contenido_nota = document.createElement("DIV");
+
+  //*  CREANDO EL ELEMENTO DIV GENERICO CONTENEDOR  DE TAGS
+  let elementoTag =  document.createElement("DIV")
+  let contenidotag = document.createElement("P");
+
+  titulo_nota.innerText = titulo;
+  contenido_nota.innerText = contenido;
+  if (!tag) {
+    contenidotag.innerText = "Agregar Etiqueta";
+  }
+  else {
+    contenidotag.innerText = tag;
+  }
 
   
 
-  // DARLE LOS ATRIBUTOS DEL CSS Y SE AJUSTEN SEGUN LOS ESTILOS
-  elementosection.setAttribute("id", "nota");
-  elementoDivTitulo.setAttribute("class", "titulo_nota");
-  elementoDivContenido.setAttribute("class", "contenido_nota");
+  nota.classList.add("nota");
+  contenedor_titulo_nota.classList.add("titulo_nota");
+  contenedor_contenido_nota.classList.add("contenido_nota");
+  elementoTag.classList.add("tagelement");
 
-  //GuardarNota(titulo,contenido)
-  notas.push(crearNota(titulo,contenido,elementoTag));
+  let elementoContenedor = document.querySelector("#contenedor_real");
 
-  localStorage.setItem("notas",JSON.stringify(notas));
-
-  //CREANDO LA ESTRUCTURA DE HERENCIA
-  elementoDivTitulo.append(elementoTitulo);
-  elementoDivContenido.append(elementoContenido);
-  elementosection.appendChild(elementoDivTitulo);
-  elementosection.appendChild(elementoDivContenido);
-  elementoContenedor.appendChild(elementosection);
-  // elementoDivTitulo.appendChild();
-  // elementoDivContenido.appendChild();
+  contenedor_titulo_nota.appendChild(titulo_nota);
+  contenedor_contenido_nota.appendChild(contenido_nota);
+  elementoTag.appendChild(contenidotag)
+  // este es el contenedor padre de ambos (titulo,contenido,tag)
+  nota.appendChild(contenedor_titulo_nota);
+  nota.appendChild(contenedor_contenido_nota);
+  nota.appendChild(elementoTag);
+  if (elementoContenedor) {
+    elementoContenedor.append(nota)
+    guardarNotas(titulo,contenido,tag);
+  }
 }
-function verificar_notas() {
-  // Esta funcion le pasa el contenido de la nota, el titulo y el contenido
-  let titulo_nota = document.querySelector("#titulo").value;
-  let contenido_nota = document.querySelector("#contenido_nota").value;
-  if (!titulo_nota && !contenido_nota) {
+
+
+
+function Extraer_valores(e){
+  return e.value;
+}
+function verificar_entradas_nota() {
+  // Crear otra funcion para extraer valor y separar responsabilidades
+  let titulo_nota = document.querySelector("#titulo");
+  let contenido_nota = document.querySelector("#contenido_nota");
+  let tag_nota = document.querySelector("#tag");
+  // mejorar aqui
+  if (!Extraer_valores(contenido_nota)) {
     alert("Debes agregar contenido a la nota.")
     return
   }
-    else if (!titulo_nota) {
+    else if (!Extraer_valores(titulo_nota)) {
     alert("La nota debe tener un titulo.");
     return;
-  } else if (!contenido_nota) {
+  } else if (!Extraer_valores(titulo_nota) && Extraer_valores(contenido_nota) ) {
     alert("La nota no puede estar vacia.");
     return;
   } else {
-    crearElementos(titulo_nota, contenido_nota);
+    return crear_nota_DOM(Extraer_valores(titulo_nota), Extraer_valores(contenido_nota),Extraer_valores(tag_nota));
   }
   
-}
-function ordenamiento(opOrdenamiento) {
-  console.log(opOrdenamiento);
 }
 function cargarNotas() {
-  // Aqui tenemos ya el array.
-  let notas = JSON.parse(localStorage.getItem("notas")) || [];
+  // Aqui tenemos  el array.
+  let parsearNotas = JSON.parse(localStorage.getItem("notas")) || [];
+
   let elementoContenedor = document.querySelector("#contenedor_real");
+
+  for (let i=0;i<parsearNotas.length;i++) {
+
+  let nota = document.createElement("DIV");
+
+
+  // Hay que tener cuidado al orgnizar esto, debe ser muy logico y correcto
+
+  // Forma correcta para que cada nota tenga su details > summary >> botones
+  let details = document.createElement("DETAILS");
+  let summary = document.createElement("SUMMARY");
+  summary.innerText = "*";
+
+  let boton_delete = document.createElement("BUTTON");
+  boton_delete.innerText = "Eliminar Nota"
+
+  let boton_edit = document.createElement("BUTTON");
+  boton_edit.innerText = "Editar Nota"
+
+  boton_delete.classList.add("notas_opciones--boton")
+  boton_edit.classList.add("notas_opciones--boton")
+
+
+  let campo_botones = document.createElement("DIV");
+  campo_botones.classList.add("campos_botones")
+  campo_botones.append(boton_edit,boton_delete)
+
   
-  console.table(notas)
-  for (let i=0;i<notas.length;i++) {
-  let elementosection = document.createElement("section");
-  let elementoDivTitulo = document.createElement("div");
 
-  let elementoDivContenido = document.createElement("div");
   
-  let elementoTitulo = document.createElement("h2");
+  details.append(summary);
+  details.append(campo_botones)
 
-  let elementoContenido = document.createElement("p");
+
+  let titulo_nota = document.createElement("H2");
+  let contenido_nota = document.createElement("P");
+  let contenedor_titulo_nota = document.createElement("DIV");
+  let contenedor_contenido_nota = document.createElement("DIV");
+  let elementoTag =  document.createElement("DIV")
+  let contenidotag = document.createElement("P");
 
 
-  elementoTitulo.textContent = notas[i].titulo;
-  elementoContenido.textContent = notas[i].contenido;
 
-    // DARLE LOS ATRIBUTOS DEL CSS Y SE AJUSTEN SEGUN LOS ESTILOS
-  elementosection.setAttribute("id", "nota");
-  elementoDivTitulo.setAttribute("class", "titulo_nota");
-  elementoDivContenido.setAttribute("class", "contenido_nota");
-  
-
-  //CREANDO LA ESTRUCTURA DE HERENCIA
-  elementoDivTitulo.append(elementoTitulo);
-  elementoDivContenido.append(elementoContenido);
-  elementosection.appendChild(elementoDivTitulo);
-  elementosection.appendChild(elementoDivContenido);
-  elementoContenedor.appendChild(elementosection);
+  // cada elemento guardado [i]
+  titulo_nota.innerText = parsearNotas[i].titulo;
+  contenido_nota.innerText = parsearNotas[i].contenido;
+  contenidotag.innerText = parsearNotas[i].etiquetas;
+  nota.classList.add("nota");
+  contenedor_titulo_nota.appendChild(details)
+  contenedor_titulo_nota.classList.add("titulo_nota");
+  contenedor_contenido_nota.classList.add("contenido_nota");
+  elementoTag.classList.add("tagelement");
+  contenedor_titulo_nota.appendChild(titulo_nota);
+  contenedor_contenido_nota.appendChild(contenido_nota);
+  elementoTag.appendChild(contenidotag)
+  // este es el contenedor padre de ambos (titulo,contenido,tag)
+  nota.appendChild(contenedor_titulo_nota);
+  nota.appendChild(contenedor_contenido_nota);
+  nota.appendChild(elementoTag);
+  if (elementoContenedor) {
+    elementoContenedor.appendChild(nota)
   }
-  
-
-  
 }
-
-cargarNotas()
+}
+document.addEventListener("DOMContentLoaded",cargarNotas());

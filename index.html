@@ -40,21 +40,13 @@
             ></textarea>
             <br />
             <label style="text-align: center;color: #e6e6e6;font-weight: bold;" for="tag">Etiquetas de la nota</label>
-            <input id="tag" type="text" placeholder="e.g mates, idiomas">
-            <button id="boton_crearNota" onclick="verificar_notas()">Crear</button>
+            <input id="tag" type="text" placeholder="e.g mates, idiomas" minlength="10">
+            <button id="boton_crearNota" onclick="verificar_entradas_nota()">Crear</button>
           </div>
         </section>
         <hr class="divisor_line">
         <section class="contenedor_creador_extras">
           <div class="campos">
-            <details>
-              <!-- El elemento sumary no es un hijo normal flex, se comporta como un componente especial, por lo cual no recibe el diplsay flex del padre,. por eso es mejor idea asilar lo que queremos que sea flex. -->
-              <summary>Opciones</summary>
-              <div class="campos_botones">
-                <button class="notas_opciones--boton" id="borrarNota">Eliminar Nota (proximamente)</button>
-                <button class="notas_opciones--boton" id="editarNota">Editar Nota (proximamente)</button>
-                </div>
-            </details>
           </div>
         </section>
       </div>
@@ -78,7 +70,9 @@
             <button id="EnviarOrden">Ordenar</button>
           </section>
         </div>
-        <div id="contenedor_real"></div>
+        <div id="contenedor_real">
+
+        </div>
       </div>
     </div>
     <script defer src="static/script.js">

@@ -74,13 +74,14 @@ overflow-y: visible es el comportamiento por defecto, el contenido se mostrará 
   align-items: flex-start;
   justify-content: space-between;
   background-color: #22222285;
-  gap: 1.5rem;
-  width: 100%;
-  margin: 0 auto;
+  gap: 1rem;
+  width: 95%;
   padding: 1rem;
+  margin: auto;
   overflow-y: auto;
   overflow-x: hidden;
-  border-radius: 1rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
   min-height: 65rem;
 }
 #contenedor_real::-webkit-scrollbar {
@@ -102,15 +103,13 @@ overflow-y: visible es el comportamiento por defecto, el contenido se mostrará 
   gap: 1rem;
   max-width: 100%;
   height: max-content;
-  margin-top: 1rem;
-  padding: 0.5rem;
+  margin-bottom: 1rem;
 }
 .notas_opciones--boton {
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: center;
-  width: auto;
-  max-width: 45rem;
-  font-size: 1.3rem;
+  max-width :100%;
+  font-size: 1.2rem;
   background-color: rgb(255, 215, 0);
   color: #222;
   cursor: pointer;
@@ -131,6 +130,7 @@ overflow-y: visible es el comportamiento por defecto, el contenido se mostrará 
 }
 details[open] summary {
   transition: all ease-in 0.3s;
+  background-color: unset;
   padding-bottom: 1rem;
 }
 summary {
@@ -139,14 +139,19 @@ summary {
   align-items: center;
   font-weight: bold;
   text-transform: uppercase;
-  width: auto;
-  background-color: #ffffff8b;
-  padding: 1rem;
+  width: 4rem;
+  height: 2rem;
+  background-color: goldenrod;
   text-align: center;
-  font-size: 1.3rem;
-  border-radius: 0.5rem;
+  font-size: 1rem;
+  border-radius: 1rem;
   cursor: pointer;
+margin: 0;
 }
+summary:hover {
+  background-color: red;
+}
+
 summary::marker {
   color: transparent;
 }
@@ -183,12 +188,12 @@ summary::marker {
 /*MEDIA QUERIES*/
 @media (max-width: 40rem) {
   .contenedor {
-    border-radius: 0;
     margin: 0;
     grid-template-columns: 1fr;
-    padding: 1rem;
+    width: 100%;
     height: 100vh;
     background-color: lightcyan;
+    padding: 0;
   }
   #contenedor_real{
   grid-template-columns: 1fr;
@@ -198,6 +203,7 @@ summary::marker {
   }
   .contenedor_notas--ver{
     height:max-content;
+    padding: 0;
   }
   .contenedor_creador {
     padding: 10px;
@@ -224,14 +230,15 @@ summary::marker {
   #EnviarOrden { 
     width:100%;
     padding:1.5rem !important;
-  }#nota {
-    height: auto;
+  }
+  .nota {
+    height: max-content;
   }
   #Author  {
    display: none;
   }
   .contenedor_notas--titulo {
-    width: 100%;
+    display: none;
   }
   .enviar_notas {
     width: 100%;
@@ -249,16 +256,17 @@ summary::marker {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 95%;
   margin: 1rem auto;
   color: #222;
 }
 select {
-color: #e6e6e6;
+color: #222;
   padding: 1rem;
   border-radius: 5px;
   font-size: 16px;
-  background-color:#222;
+  background-color:gold;
+  box-shadow: 2px 2px 0 1px #222;
 border: medium;
   font-weight: bold;
   margin-right: 1rem;
@@ -266,7 +274,8 @@ border: medium;
 }
 option {
   text-align: center;
-  background-color: #22222298;
+  background-color: #2222226c;
+  color:#e6e6e6;
   cursor: pointer;
 }
 #EnviarOrden {
@@ -304,6 +313,7 @@ option {
   height: max-content;
   font-weight: bold;
   border-radius: .5rem;
+  text-transform:lowercase;
 }
 #tag:focus {
   outline: 2px solid #e6e6e6;
@@ -338,29 +348,29 @@ option {
 #boton_crearNota:active {
   transform: scale(0.98);
 }
-#nota {
-  flex: 1 1 25rem;
+.nota {
+  flex: 1 1 21rem;
   display: flex;
-  min-height: 15rem;
-  height: max-content;
+  min-height: 30rem;
   text-align:justify;
   height: max-content;
   flex-direction: column;
+  justify-content: space-between;
   overflow-wrap: break-word;
   word-break: break-word;
   padding: 1rem;
   color: #e6e6e6;
-  box-shadow: 2px 1px 0 1px  #e6e6e6;
-  border-radius: 3rem;
+  box-shadow: 0 1px 3px 1px  #e6e6e6;
+  border-radius: 1rem;
   background-color:dimgrey;
 }
-#nota:hover {
+.nota:hover {
   transform: scale(1.01);
   transition: transform 0.2s ease;
   background-color: #222;
   cursor: pointer;
 }
-#nota:checked {
+.nota:checked {
   background-color: red;
 }
 .titulo_nota {
@@ -384,10 +394,22 @@ option {
   width: 100%;
   overflow-wrap: break-word;
 }
-#notas_opcion:hover {
+.notas_opcion:hover {
   background-color: transparent;
   color: #222;
   background-color: #eee;
+}
+.tagelement {
+  width: 100%;
+  padding: 1rem;
+    background-color: rgba(0, 128, 0, 0.504);
+    border-bottom-left-radius:2rem ;
+    border-bottom-right-radius:2rem ;
+    
+}
+.tagelement p {
+  font-size: 1rem;
+  color: #e6e6e6;
 }
 .contenedor_creador {
   display: flex;

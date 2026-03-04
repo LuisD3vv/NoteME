@@ -1,0 +1,8 @@
+  <details>
+              <!-- El elemento sumary no es un hijo normal flex, se comporta como un componente especial, por lo cual no recibe el diplsay flex del padre,. por eso es mejor idea asilar lo que queremos que sea flex. -->
+              <summary>Opciones</summary>
+              <div class="campos_botones">
+                <button class="notas_opciones--boton" id="borrarNota">Eliminar Notas (proximamente)</button>
+                <button class="notas_opciones--boton" id="editarNota">Editar Nota (proximamente)</button>
+                </div>
+            </details>
