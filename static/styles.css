@@ -16,270 +16,41 @@ html {
 }
 body {
   font-family: var(--fuentePrincipal);
-  background-color: aliceblue;
+  background-color: #333;
 }
-.Cont_title {
-  font-size: 3rem;
-  margin-left: 2rem;
-}
-a {
-  font-family: monospace;
-  text-align: center;
-  text-decoration: none;
-  color: #222;
-  padding: 1rem;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-a:hover {
-  background-color: #eee;
-  color: #222;
-  transition: background-color ease-in-out 0.5s;
-  border-radius: 0.5rem;
-}
+
 .contenedor {
-  display: grid;
-  grid-template-columns: 20% 80%;
-  width: auto;
-  max-width: 180rem;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-/* overflow-y: scroll mostrará siempre una barra de scroll vertical.
-
-overflow-y: auto mostrará la barra solo cuando sea necesario (cuando el contenido se salga).
-
-overflow-y: hidden ocultará el contenido que se desborde sin scroll.
-
-overflow-y: visible es el comportamiento por defecto, el contenido se mostrará fuera del contenedor si es muy grande. */
-.contenedor__notas--general {
-  background-color: lightcoral;
-  padding: 1.5rem;
-  height: max-content;
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
-}
-.contenedor_notas--ver {
   display: flex;
   flex-direction: column;
-  background-color: lightblue;
-  padding: 1rem;
-  height: 75rem;
-  border-radius: 2rem;
-  border-top-left-radius: 0;
-}
-#contenedor_real {
-  display: flex;
-  flex-flow:row wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: #22222285;
-  gap: 1rem;
-  width: 95%;
-  padding: 1rem;
-  margin: auto;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
-  min-height: 65rem;
-}
-#contenedor_real::-webkit-scrollbar {
-  display: none;
-}
-.contenedor__notas--general--create {
-  text-align: center;
-  font-size: 1.8rem;
+  max-width: 200rem;
   margin: 1rem auto;
-  border-radius: 5px;
   padding: 1rem;
-  width: 100%;
-  background-color: #ffffff86;
+  gap: 1rem
+  ;
 }
-
-.campos_botones {
+.contenedor_notas--general {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 100%;
-  height: max-content;
-  margin-bottom: 1rem;
-}
-.notas_opciones--boton {
-  padding: 1rem;
-  text-align: center;
-  max-width :100%;
-  font-size: 1.2rem;
-  background-color: rgb(255, 215, 0);
-  color: #222;
-  cursor: pointer;
-  font-weight: bold;
-  border: medium;
-  border-radius: 0.5rem;
-  box-shadow: 2px 2px 0 1px #222;
-}
-.notas_opciones--boton:hover {
-  outline-offset: 2px;
-  outline: 2px solid #e6e6e6;
-
-  box-shadow: unset;
-}
-.notas_opciones--boton:active {
-  transform: scale(0.98);
-  transition: all;
-}
-details[open] summary {
-  transition: all ease-in 0.3s;
-  background-color: unset;
-  padding-bottom: 1rem;
-}
-summary {
-  display: flex;
   justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  text-transform: uppercase;
-  width: 4rem;
-  height: 2rem;
-  background-color: goldenrod;
-  text-align: center;
-  font-size: 1rem;
-  border-radius: 1rem;
-  cursor: pointer;
-margin: 0;
-}
-summary:hover {
-  background-color: red;
-}
-
-summary::marker {
-  color: transparent;
-}
-
-.contenedor_creador_extras {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-radius: 5px;
-  margin: 1rem auto;
-
+  align-self: center;
+  width: 90rem;
+  padding: 1rem;
   height: max-content;
-}
-.campos {
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  margin: 0 auto;
-  border-radius: 5px;
-}
-.campos h3 {
-  padding: 1rem;
-  text-align: center;
-  color: rgb(237, 220, 220);
-  font-size: 20px;
-  background-color: #222222b4;
-}
-.contenedor_notas--titulo {
-  color: #222;
-  padding: 1rem;
-  font-size: 2.5rem;
-}
-
-/*MEDIA QUERIES*/
-@media (max-width: 40rem) {
-  .contenedor {
-    margin: 0;
-    grid-template-columns: 1fr;
-    width: 100%;
-    height: 100vh;
-    background-color: lightcyan;
-    padding: 0;
-  }
-  #contenedor_real{
-  grid-template-columns: 1fr;
-  }
-  .contenedor__notas--general,.contenedor_notas--ver {
-    border-radius: 0;
-  }
-  .contenedor_notas--ver{
-    height:max-content;
-    padding: 0;
-  }
-  .contenedor_creador {
-    padding: 10px;
-    height: auto;
-  }
-  .nav-bg {
-    margin-top: 1rem;
-  }
+  border-radius: 1rem;
   
-  select {
-    width:100%;
-    padding:1.5rem !important;
-
-  }
-  .header_ver-notas {
-    flex-direction:column;
-    gap:1rem;
-  }
-  .cont_not {
-    flex-direction:column;
-    gap:1rem;
-    width:100%;
-  }
-  #EnviarOrden { 
-    width:100%;
-    padding:1.5rem !important;
-  }
-  .nota {
-    height: max-content;
-  }
-  #Author  {
-   display: none;
-  }
-  .contenedor_notas--titulo {
-    display: none;
-  }
-  .enviar_notas {
-    width: 100%;
-    margin: 0;
-  }
 }
-
-.cont_not {
-  display: flex;
+#abrirModal {
+  margin: auto;
   padding: 1rem;
-  border-radius: .5rem;
+  border: medium;
+  width: 30rem;
+cursor: pointer;
+background-color: gold;
+border-radius: 1rem;
+font-weight: bold;
 }
-.header_ver-notas {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  width: 95%;
-  margin: 1rem auto;
-  color: #222;
-}
-select {
-color: #222;
-  padding: 1rem;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color:gold;
-  box-shadow: 2px 2px 0 1px #222;
-border: medium;
-  font-weight: bold;
-  margin-right: 1rem;
-  cursor: pointer;
-}
-option {
-  text-align: center;
-  background-color: #2222226c;
-  color:#e6e6e6;
-  cursor: pointer;
-}
-#EnviarOrden {
-  color: #222;
+#cerrarModal {
+    color: #222;
   text-align: center;
   background-color: gold;
   text-transform: uppercase;
@@ -287,22 +58,95 @@ option {
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
+  width: 100%;
   margin: auto;
   border: medium;
+  padding: 1.5rem;
+  box-shadow: 0 2px 0 1px #222;
+  letter-spacing: 1px;
+}
+dialog { 
+  flex-direction: column;
+  justify-content:space-between;
+  gap: 1rem;
+  position: fixed; /* Fija la posición relativa a la ventana del navegador */
+  /** Estilos para lograr centrar el elemento  a la mitad exactamente de su contenedor **/
+  top: 30%; /* Mueve el borde superior al ?% de la altura de la ventana */
+  left: 50%; /* Mueve el borde izquierdo al 50% del ancho de la ventana */
+  transform: translate(-50%, -50%); /* Ajusta el elemento hacia atrás la mitad de su 
+  propio ancho/alto */
+  /* Otros estilos */
+  border: medium;
+  background-color: lightcoral;
+  padding: 2rem;
+  
+  z-index: 100;  /*Traer al elemento una capa mas adelante*/
+  width: min(35rem, 95%);
+  border-radius:1rem;
+  height: max-content;
+}
+
+/* Aplicarle el efecto borroso, solo funciona con javbascript en elemento.showModal()  */
+dialog::backdrop {
+  background-color: transparent; 
+  backdrop-filter: blur(.2rem);  /*Actua sobre el area del elemento no sobre el elemento en si*/
+  -webkit-backdrop-filter: blur(.2rem);
+
+}
+
+.contenedor_notas--ver {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
   padding: 1rem;
-  box-shadow: 2px 2px 0 1px #222;
-  margin-right: 1rem;
+  height: max-content;
+  border-radius: 1rem;
+  
 }
-#EnviarOrden:focus {
-  outline-offset: 2px;
-  outline: 2px solid #e6e6e6;
-  box-shadow: unset;
-  color: #222;
+.contenedor_real {
+  display: flex;
+  flex-flow:row wrap;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  margin: auto;
+  overflow-y: auto;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  min-height: 65rem;
 }
-#EnviarOrden:active {
-  transform: scale(0.98);
-  box-shadow: unset;
-  color: #222;
+.contenedor_real::-webkit-scrollbar {
+  display: none;
+}
+.contenedor_notas--general--title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  width: 25rem;
+  background-color: rgb(241, 130, 130);
+  border-radius: 1rem;
+}
+/*MEDIA QUERIES*/
+@media (max-width: 40rem) {
+  .contenedor {
+    margin: 0;
+    max-width: 100%;
+    height: 100vh;
+    background-color: #22222287;
+    padding: 0;
+  }
+  .contenedor_real{
+  grid-template-columns: 1fr;
+  }
+  .contenedor_notas--general,.contenedor_notas--ver {border-radius: 0;}
+  .contenedor_notas--ver{height:max-content;padding: 0;}
+  .contenedor_creador {padding: 10px;height: auto;}
+  .nota {height: max-content;}
+  #Author  {display: none;}
+  .enviar_notas {width: 100%;margin: 0;}
 }
 #tag {
   all: unset;
@@ -320,7 +164,7 @@ option {
   outline-offset: 2px;
 }
 #tag::placeholder {
-  filter: opacity(80%
+  filter: opacity(50%
   );
   text-transform: lowercase;
 }
@@ -338,7 +182,8 @@ option {
   margin: auto;
   border: medium;
   padding: 1.5rem;
-  box-shadow: 2px 2px 0 1px #222;
+  box-shadow: 2px 2px 0 1px rgba(255, 217, 0, 0.511);
+  letter-spacing: 1px;
 }
 #boton_crearNota:hover {
   outline-offset: 2px;
@@ -348,50 +193,99 @@ option {
 #boton_crearNota:active {
   transform: scale(0.98);
 }
-.nota {
-  flex: 1 1 21rem;
+details {
   display: flex;
-  min-height: 30rem;
+  flex-direction: column;
+  gap: 2rem;
+}
+summary {
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: goldenrod;
+  font-size: 1.2em;
+border-radius: .5rem;
+  cursor: pointer;
+}
+summary::marker {
+  color: transparent;
+}
+.campos_botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.notas_opciones--boton {
+  color: #222;
+  text-align: center;
+  background-color: gold;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  border: medium;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+.notas_opciones--boton:hover {
+  transform: scale(1.02);
+  box-shadow: 2px 2px #222;
+}
+.nota {
+  flex: 1 1 25rem;
+  display: flex;
+  min-height: 15rem;
+  height: auto;
   text-align:justify;
-  height: max-content;
+  gap: 1rem;
   flex-direction: column;
   justify-content: space-between;
   overflow-wrap: break-word;
   word-break: break-word;
   padding: 1rem;
   color: #e6e6e6;
-  box-shadow: 0 1px 3px 1px  #e6e6e6;
   border-radius: 1rem;
   background-color:dimgrey;
+  overflow-y: scroll;
 }
+.nota::-webkit-scrollbar {
+  display: none;
+}
+
 .nota:hover {
   transform: scale(1.01);
   transition: transform 0.2s ease;
-  background-color: #222;
+  background-color: #222222aa;
   cursor: pointer;
 }
-.nota:checked {
+/* .nota:checked {
+  solo funciona en inputs
   background-color: red;
-}
+} */
 .titulo_nota {
-  width: 95%;
-  margin: .6rem auto;
   text-align: center;
   font-size: 1.3rem;
-  padding: .5rem;
   font-weight: bold;
-  border-bottom: .2rem solid grey;
+  border-bottom:.2rem solid grey;
 }
 .contenido_nota {
-  margin: 0 auto;
-  max-width: 25rem;
+  background-color: #1111113f;
+  text-align: center;
+  width: 100%;
+  min-height: max-content;
+  height: max-content;
   padding: 1rem;
+  margin: 0 auto;
+  border-radius: .5rem;
 }
 .contenido_nota p {
-  text-align: justify;
-  font-size: 13px;
-  line-height: 1.5;
-  width: 100%;
+  font-size: 1.5rem;
   overflow-wrap: break-word;
 }
 .notas_opcion:hover {
@@ -403,11 +297,12 @@ option {
   width: 100%;
   padding: 1rem;
     background-color: rgba(0, 128, 0, 0.504);
-    border-bottom-left-radius:2rem ;
-    border-bottom-right-radius:2rem ;
+    border-bottom-left-radius:1rem ;
+    border-bottom-right-radius:1rem ;
     
 }
 .tagelement p {
+  font-weight: medium;
   font-size: 1rem;
   color: #e6e6e6;
 }
@@ -421,11 +316,6 @@ option {
 }
 .texto_nota_orden {
   font-size: 1.8rem;
-}
-.divisor_line {
-  margin: 0 auto;
-  width: 80%;
-  border-color: grey;
 }
 .enviar_notas {
   display: flex;
@@ -464,7 +354,7 @@ input:focus {
 }
 p {
   text-align: center;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
 }
 textarea {
@@ -476,7 +366,6 @@ textarea {
   max-width: 100%;
   border: none;
   background-color: transparent;
-  border-radius: 5px;
   outline: none;
   color: white;
   font-size: 1.2rem;
@@ -493,12 +382,25 @@ textarea::placeholder {
 textarea::-webkit-scrollbar {
   display: none;
 }
-#Crear_nota {
-  padding: 1rem;
-  width: 100%;
-}
+
+
+
+
 a {
+  font-family: monospace;
+  text-align: center;
+  text-decoration: none;
+  color: #222;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
   width: auto;
+}
+a:hover {
+  
+  color: #222;
+  transition: background-color ease-in-out 0.5s;
+  border-radius: 0.5rem;
 }
 a:nth-child(1) {
   border-bottom-left-radius: unset;
@@ -511,12 +413,11 @@ a:nth-child(3) {
   border-left: none;
 }
 footer {
-  bottom: 0px;
-  left: 0px;
+  bottom: 0;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #22222287;
   position: fixed;
 }
 #Author {

@@ -15,11 +15,14 @@
     <link rel="shortcut icon" href="img/notas.png" type="image/x-icon">
   </head>
   <body>
-    </div>
+
     <div class="contenedor">
-      <div class="contenedor__notas--general">
-        <h3 class="contenedor__notas--general--create"> Nueva nota</h3>
-        <section class="contenedor_creador">
+      <div class="contenedor_notas--general">
+        <h3 class="contenedor_notas--general--title">NoteME!</h3>
+        <button id="abrirModal">-> Nueva nota <-</button>
+        </div>
+        <dialog>
+  <section class="contenedor_creador">
           <div class="enviar_notas">
             <p>
               <label class="texto_nota_orden" for="titulo">Titulo</label>
@@ -28,59 +31,32 @@
                 name="titulo"
                 id="titulo"
                 placeholder="Escribe aqui"
-                autocomplete="off"
-              />
+                autocomplete="off"/>
             </p>
             <textarea
               name="titulo"
               id="contenido_nota"
               placeholder="Contenido de la nota"
               maxlength="450"
-              
             ></textarea>
             <br />
             <label style="text-align: center;color: #e6e6e6;font-weight: bold;" for="tag">Etiquetas de la nota</label>
             <input id="tag" type="text" placeholder="e.g mates, idiomas" minlength="10">
-            <button id="boton_crearNota" onclick="verificar_entradas_nota()">Crear</button>
+            <button id="boton_crearNota" onclick="verificar_entradas_nota()">Crear nota</button>
           </div>
         </section>
-        <hr class="divisor_line">
-        <section class="contenedor_creador_extras">
-          <div class="campos">
-          </div>
-        </section>
-      </div>
+        <button id="cerrarModal">cerrar</button>
+        </dialog>
       <!--Seccion ver notas-->
       <div class="contenedor_notas--ver">
-        <div class="header_ver-notas">
-          <section class="contendor_general_titulo">
-            <div class="contenedor_notas--titulo">
-            <h3>NoteME!</h3>
-            </div>
-          </section>
-          <section class="cont_not">
-            <select title="notas" name="OrderNotes" id="con_options">
-              <option value="Ordenar" disabled selected>-- Ordenar por --</option>
-              <option value="Etiqueta">Etiqueta</option>
-              <option value="Fecha" >Fecha</option>
-              <option value="alfa">A-Z</option>
-              <option value="ul-modi">Ultima modificación</option>
-              <option value="pri-modi">Primera modificación</option>
-            </select>
-            <button id="EnviarOrden">Ordenar</button>
-          </section>
-        </div>
-        <div id="contenedor_real">
-
+        <div class="contenedor_real">
         </div>
       </div>
     </div>
     <script defer src="static/script.js">
     </script>
     <footer>
-      <a id="Author" href="https://github.com/LuisD3vv"
-        >&copy 2025 LuisD3vv</a
-      >
+      <a id="Author" href="https://github.com/LuisD3vv">&copy 2026 LuisD3vv</a>
     </footer>
   </body>
 </html>

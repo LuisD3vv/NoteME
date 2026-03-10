@@ -5,16 +5,13 @@ y solicitando los nuevos cambios)
 por el momento asi, hasta guardarlo en algo mas maduro
 */
 
-
+function calcularAlturaNota(e) {
+  e.offsetHeight
+}
 
 function expandir_nota() {
 
 }
-
-let orden = document.querySelector("#EnviarOrden")
-orden.addEventListener("click",()=>{
-  console.log("Acomodar")
-})
 
 // Crear estructura logica de cada nota, como se guarda en el localStorage.
 function estructura_guardar_nota_temporal(titulo, contenido,tag) {
@@ -68,7 +65,7 @@ function crear_nota_DOM(titulo,contenido,tag) {
   contenedor_contenido_nota.classList.add("contenido_nota");
   elementoTag.classList.add("tagelement");
 
-  let elementoContenedor = document.querySelector("#contenedor_real");
+  let elementoContenedor = document.querySelector(".contenedor_real");
 
   contenedor_titulo_nota.appendChild(titulo_nota);
   contenedor_contenido_nota.appendChild(contenido_nota);
@@ -77,8 +74,10 @@ function crear_nota_DOM(titulo,contenido,tag) {
   nota.appendChild(contenedor_titulo_nota);
   nota.appendChild(contenedor_contenido_nota);
   nota.appendChild(elementoTag);
+  document.querySelector("dialog").close();
   if (elementoContenedor) {
     elementoContenedor.append(nota)
+    
     guardarNotas(titulo,contenido,tag);
   }
 }
@@ -113,7 +112,7 @@ function cargarNotas() {
   // Aqui tenemos  el array.
   let parsearNotas = JSON.parse(localStorage.getItem("notas")) || [];
 
-  let elementoContenedor = document.querySelector("#contenedor_real");
+  let elementoContenedor = document.querySelector(".contenedor_real");
 
   for (let i=0;i<parsearNotas.length;i++) {
 
@@ -125,13 +124,13 @@ function cargarNotas() {
   // Forma correcta para que cada nota tenga su details > summary >> botones
   let details = document.createElement("DETAILS");
   let summary = document.createElement("SUMMARY");
-  summary.innerText = "*";
+  summary.innerText = ":";
 
   let boton_delete = document.createElement("BUTTON");
-  boton_delete.innerText = "Eliminar Nota"
+  boton_delete.innerText = "Eliminar"
 
   let boton_edit = document.createElement("BUTTON");
-  boton_edit.innerText = "Editar Nota"
+  boton_edit.innerText = "Editar"
 
   boton_delete.classList.add("notas_opciones--boton")
   boton_edit.classList.add("notas_opciones--boton")
@@ -179,3 +178,14 @@ function cargarNotas() {
 }
 }
 document.addEventListener("DOMContentLoaded",cargarNotas());
+
+
+document.querySelector("#abrirModal").addEventListener("click",()=>{
+  // show modal necesario para usar backdrop
+  document.querySelector("dialog").showModal();
+})
+
+document.querySelector("#cerrarModal").addEventListener("click",()=>{
+  // no usar display=none, solo oculta el elemento pero no lo cierra realmente
+  document.querySelector("dialog").close();
+})
